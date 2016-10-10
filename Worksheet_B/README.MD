@@ -7,6 +7,6 @@ if the player guesses correctly then open door or chest
 if generated word is "grass" and player guesses "glass" remove a try and show a likeness of 4
 The likeness is how many letters are in both the players guess and the generated word
 Only reset the word after the game has been
+```
 
 ![Flowchart](flowchart.pdf)
-```
