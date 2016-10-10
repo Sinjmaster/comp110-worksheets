@@ -1,3 +1,4 @@
+```
 Player Starts Minigame
 A five Letter word is randomly generated
 Player has 4 tries to guess the correct code
@@ -8,3 +9,4 @@ The likeness is how many letters are in both the players guess and the generated
 Only reset the word after the game has been
 
 ![Flowchart](flowchart.pdf)
+```
