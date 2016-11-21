@@ -1,29 +1,44 @@
 class OxoBoard:
     def __init__(self):
-        """ The initialiser. Initialise any fields you need here. """
-        raise NotImplementedError("TODO: implement __init__")
+        #Starts up the Oxoboard list
+        self.oxoboard = ([0,0,0], [0,0,0], [0,0,0])
 
     def get_square(self, x, y):
-        """ Return 0, 1 or 2 depending on the contents of the specified square. """
-        raise NotImplementedError("TODO: implement get_square")
+        return self.oxoboard
 
     def set_square(self, x, y, mark):
-        """ If the specified square is currently empty (0), fill it with mark and return True.
-            If the square is not empty, leave it as-is and return False. """
-        raise NotImplementedError("TODO: implement set_square")
+        #Checks if the square is empty, if empty it is filled with a mark and if filled is returned as false
+        if self.oxoboard[x][y] == 0:
+            self.oxoboard[x][y] = mark
+            return True
+        else:
+            return False
+
 
     def is_board_full(self):
-        """ If there are still empty squares on the board, return False.
-            If there are no empty squares, return True. """
-        raise NotImplementedError("TODO: implement is_board_full")
+        for x in range(3):#Shows as false if empty squares are on the board
+            for y in range(3):
+                if self.oxoboard[x][y] == 0:
+                    return False
+        return True#shows true if all squares on the board are filled
 
     def get_winner(self):
-        """ If a player has three in a row, return 1 or 2 depending on which player.
-            Otherwise, return 0. """
-        raise NotImplementedError("TODO: implement get_winner")
+        for  i in range(3):
+            #Checks for horizontal match
+            if self.oxoboard[i][0] == self.oxoboard[i][1] == self.oxoboard[i][2] > 0:
+                return self.oxoboard[i][0]
+            #Checks for vertical match
+            elif self.oxoboard[0][i] == self.oxoboard[1][i] == self.oxoboard[2][i] > 0:
+                return self.oxoboard[0][i]
+            #checks for diagonal matches
+            elif self.oxoboard[0][0] == self.oxoboard[1][1] == self.oxoboard[2][2] > 0:
+                return self.oxoboard[0][0]
+            elif self.oxoboard[0][2] == self.oxoboard[1][1] == self. oxoboard[2][0] > 0:
+                return self.oxoboard [0][2]
+        return 0
+
 
     def show(self):
-        """ Display the current board state in the terminal. You should not need to edit this. """
         for y in xrange(3):
             if y > 0:
                 print "--+---+--"
@@ -59,7 +74,6 @@ def input_square():
         return x, y
 
 
-# The main game. You should not need to edit this.
 if __name__ == '__main__':
     board = OxoBoard()
     current_player = 1
