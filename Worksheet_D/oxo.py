@@ -23,7 +23,7 @@ class OxoBoard:
         return True#shows true if all squares on the board are filled
 
     def get_winner(self):
-        for  i in range(3):
+        for i in range(3):
             #Checks for horizontal match
             if self.oxoboard[i][0] == self.oxoboard[i][1] == self.oxoboard[i][2] > 0:
                 return self.oxoboard[i][0]
@@ -75,20 +75,20 @@ def input_square():
 
 
 if __name__ == '__main__':
-    board = OxoBoard()
+    oxoboard = OxoBoard()
     current_player = 1
     while True:
-        board.show()
+        oxoboard.show()
         print "Choose a square, Player", current_player
         x, y = input_square()
 
-        if board.set_square(x, y, current_player):
+        if oxoboard.set_square(x, y, current_player):
             # Move was played successfully, so check for a winner
-            winner = board.get_winner()
+            winner = oxoboard.get_winner()
             if winner != 0:
                 print "Player", winner, "wins!"
                 break   # End the game
-            elif board.is_board_full():
+            elif oxoboard.is_board_full():
                 print "It's a draw!"
                 break   # End the game
             else:
